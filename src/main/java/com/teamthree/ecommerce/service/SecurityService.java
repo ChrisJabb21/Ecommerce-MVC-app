@@ -1,0 +1,8 @@
+package com.teamthree.ecommerce.service;
+
+public interface SecurityService {
+	String findLoggedInUsername();
+	
+	void autologin(String username, String password);
+
+}
