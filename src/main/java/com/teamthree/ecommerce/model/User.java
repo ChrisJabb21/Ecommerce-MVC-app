@@ -27,9 +27,9 @@ public class User {
     private String phone_number;
     private String password;
     private String confirm_Password;
-    private boolean enabled;
-    private String address;
-    //Address as embedded or separate enitity.
+    private boolean enabled; // make sure it prints true or false
+    //private String address;
+    //Address as embedded object or separate enitity.
     //private Set<Address> address;
 
     
@@ -109,11 +109,4 @@ public class User {
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
 	}
-
-
-
-
-    
-
-    
 }

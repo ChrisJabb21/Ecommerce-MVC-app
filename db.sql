@@ -70,12 +70,15 @@ CREATE TABLE `user_role` (
   `condition` VARCHAR(45) NOT NULL,
   `price` DECIMAL(15,2) NOT NULL
   PRIMARY KEY (`product_id`)
-  )ENGINE=InnoDB DEFAULT CHARSET=utf8;;
+  )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 --TODO
 -- CREATE TABLE `sql9373933`.`invoices` (
 --   );
+
+--TODO 
+--ADDRESS
 
 
 
