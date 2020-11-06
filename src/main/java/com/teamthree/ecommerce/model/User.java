@@ -26,13 +26,11 @@ public class User {
     private String email;
     private String phone_number;
     private String password;
-    private String confirm_Password;
-    private boolean enabled; // make sure it prints true or false
-    //private String address;
-    //Address as embedded object or separate enitity.
-    //private Set<Address> address;
-
-    
+    private String passwordConfirm;
+	private boolean enabled;
+	//private String address; 
+	@ManyToMany
+	@JoinTable(name = "user_role", joinColumns= @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
 
 	public int getId() {
@@ -84,12 +82,12 @@ public class User {
 	}
 
 	@Transient
-	public String getConfirm_Password() {
-		return confirm_Password;
+	public String getPasswordConfirm() {
+		return passwordConfirm;
 	}
 
-	public void setConfirm_Password(String confirm_Password) {
-		this.confirm_Password = confirm_Password;
+	public void setPasswordConfirm(String passwordConfirm) {
+		this.passwordConfirm = passwordConfirm;
 	}
 
 	public boolean isEnabled() {
@@ -100,8 +98,7 @@ public class User {
 		this.enabled = enabled;
 	}
 
-	@ManyToMany
-	@JoinTable(name = "user_role", joinColumns= @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+
 	public Set<Role> getRoles() {
 		return roles;
 	}

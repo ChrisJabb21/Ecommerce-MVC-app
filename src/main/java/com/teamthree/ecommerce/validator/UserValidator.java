@@ -26,7 +26,6 @@ public class UserValidator implements Validator {
 
 	@Override
 	public void validate(Object target, Errors errors) {
-        // TODO Auto-generated method stub
         User user = (User) target;
 
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "username", "NotEmpty");
@@ -43,7 +42,7 @@ public class UserValidator implements Validator {
             errors.rejectValue("password", "Size.userForm.password");
         }
 
-        if (!user.getConfirm_Password().equals(user.getPassword())) {
+        if (!user.getPasswordConfirm().equals(user.getPassword())) {
             errors.rejectValue("passwordConfirm", "Diff.userForm.passwordConfirm");
         }
 

@@ -64,7 +64,7 @@ CREATE TABLE `user_role` (
 
  CREATE TABLE `sql9373933`.`products` (
   `product_id` INT NOT NULL AUTO_INCREMENT,
-  `product_thumbnail` VARCHAR(254) NOT NULL,
+  `product_thumbnail` BLOB NULL,
   `name` VARCHAR(45) NOT NULL,
   `category` VARCHAR(45) NOT NULL,
   `condition` VARCHAR(45) NOT NULL,

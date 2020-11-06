@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
+/**
+ * Controller for user registration and login
+ */
 public class UserController {
     @Autowired
     private UserService userService;
@@ -28,7 +31,7 @@ public class UserController {
     public String registration(Model model) {
         model.addAttribute("userForm", new User());
         
-        //go to the jsp for registration
+        //go to the registrationjsp for registration
         return "registration";
     
     
@@ -45,7 +48,7 @@ public class UserController {
 
         userService.save(userForm);
 
-        securityService.autologin(userForm.getUsername(), userForm.getConfirm_Password());
+        securityService.autologin(userForm.getUsername(), userForm.getPasswordConfirm());
 
         //welcome or home page
         return "redirect:/welcome";
