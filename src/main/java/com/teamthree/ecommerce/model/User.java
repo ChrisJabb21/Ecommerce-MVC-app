@@ -2,16 +2,16 @@ package com.teamthree.ecommerce.model;
 
 import java.util.Set;
 
-import javax.persistence.Column;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -28,14 +28,19 @@ public class User {
     @GenericGenerator(name = "native",strategy = "native")
     private int id;
     private String username;
-    private String fullname;
-    private String email;
+	private String email;
+	private String fullname;
     private String phone_number;
     private String password;
     @Transient
     private String passwordConfirm;
-    private boolean enabled;
-	//private String address; 
+    private boolean enabled = true;
+//    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//	@JoinColumn(name = "shippingAddressId")
+//	private ShippingAddress  shipping_Address;
+//	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//	@JoinColumn(name = "billingAddressId")
+//	private BillingAddress billingAddress; 
 	@ManyToMany
 	@JoinTable(name = "user_role", joinColumns= @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
@@ -112,4 +117,21 @@ public class User {
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
 	}
+
+//	 public BillingAddress getBillingAddress() {
+//	 	return billingAddress;
+//	 }
+//
+//	 public void setBillingAddress(BillingAddress billingAddress) {
+//	 	this.billingAddress = billingAddress;
+//	 }
+//
+//	 public ShippingAddress getShippingAddress() {
+//	 	return shippingAddress;
+//	 }
+//
+//	 public void setShippingAddress( ShippingAddress shippingAddress) {
+//	 	this.shippingAddress =  shippingAddress;
+//	 }
+
 }
