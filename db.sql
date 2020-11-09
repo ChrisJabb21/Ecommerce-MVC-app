@@ -5,11 +5,11 @@ USE `sql9379333`;
 --For customers 
  CREATE TABLE `sql9379333`.`users` (
   `user_id` INT NOT NULL AUTO_INCREMENT,
-  `username` VARCHAR(45) NOT NULL,
-  `email` VARCHAR(45) NOT NULL,
-  `password` VARCHAR(45) NOT NULL,
+  `username` VARCHAR(50) NOT NULL,
+  `email` VARCHAR(50) NOT NULL,
+  `password` VARCHAR(68) NOT NULL,
 --   `role` VARCHAR(45) NOT NULL,
-  `enabled` ENUM('true', 'false') NOT NULL DEFAULT 'true',
+  `enabled` TINYINT(1) NOT NULL DEFAULT 1,
   `fullname` VARCHAR(50) NULL,
   `phone_number` VARCHAR(22) NULL,
   
@@ -46,7 +46,7 @@ CREATE TABLE `role` (
 
 LOCK TABLES `role` WRITE;
 INSERT INTO `role` VALUES (1,'ROLE_USER');
-INSERT INTO `role` VALUES (2,'ROLE_ADMIN');
+--INSERT INTO `role` VALUES (2,'ROLE_ADMIN');
 UNLOCK TABLES;
 
 
@@ -80,5 +80,9 @@ CREATE TABLE `user_role` (
 --TODO 
 --ADDRESS
 
+
+--TODO Cart
+
+--TODO CartItem
 
 
