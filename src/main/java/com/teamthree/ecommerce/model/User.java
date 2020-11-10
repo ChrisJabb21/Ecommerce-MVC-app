@@ -1,6 +1,5 @@
 package com.teamthree.ecommerce.model;
 
-import java.io.Serializable;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -15,34 +14,40 @@ import javax.persistence.Transient;
 
 import org.hibernate.annotations.GenericGenerator;
 
+
 @Entity
 @Table(name = "users")
-public class User implements Serializable {
-
-	/**
-	 *
-	 */
-	private static final long serialVersionUID = 1L;
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
-	@GenericGenerator(name = "native", strategy = "native")
-	private int id;
-	private String username;
+public class User {
+	
+	
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO,generator="native")
+    @GenericGenerator(name = "native",strategy = "native")
+    private int id;
+    private String username;
 	private String email;
 	private String fullname;
-	private String phone_number;
-	private String password;
-	@Transient
-	private String passwordConfirm;
-	private boolean enabled = true;
+    private String phone_number;
+    private String password;
+    @Transient
+    private String passwordConfirm;
+    private boolean enabled = true;
 	private String billing_address;
 	private String shipping_address;
 	@ManyToMany
-	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
-	private Set<Role> roles;
+	@JoinTable(name = "user_role", joinColumns= @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles;
 
 	public int getId() {
 		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getUsername() {
+		return username;
 	}
 
 	public String getBilling_address() {
@@ -62,13 +67,6 @@ public class User implements Serializable {
 		this.shipping_address = shipping_address;
 	}
 
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getUsername() {
-		return username;
-	}
 
 	public void setUsername(String username) {
 		this.username = username;
@@ -130,6 +128,4 @@ public class User implements Serializable {
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
 	}
-
-
 }

@@ -92,6 +92,8 @@ CREATE TABLE `user_role` (
  CREATE TABLE `sql9373933`.`products` (
   `product_id` INT NOT NULL AUTO_INCREMENT,
   `product_thumbnail` BLOB NULL,
+  --Description
+  --Manufacturer
   `name` VARCHAR(45) NOT NULL,
   `category` VARCHAR(45) NOT NULL,
   `condition` VARCHAR(45) NOT NULL,
@@ -109,6 +111,28 @@ CREATE TABLE `user_role` (
 
 
 --TODO Cart
+
+ CREATE TABLE `sql9373933`.`cart` (
+  `cart_id` INT NOT NULL AUTO_INCREMENT,
+  `user_id` INT NOT NULL,
+  `cart_item_id` INT NOT NULL,
+  `totalprice` DECIMAL(15,2) NOT NULL,
+  CONSTRAINT `fk_users_userid` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT `fk_cartitem` FOREIGN KEY (`cart_item_id`) REFERENCES `cart` (`cart_item_id`) ON DELETE CASCADE ON UPDATE CASCADE
+  PRIMARY KEY (`cart_id`)
+  )ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+ CREATE TABLE `sql9373933`.`cartitem` (
+   `cart_item_id` INT NOT NULL AUTO_INCREMENT,
+   `cart_id` INT NOT NULL,
+   `product_id` INT NOT NULL, 
+   `quantity` INT NOT NULL,
+   `price` DECIMAL(15,2) NOT NULL,
+  CONSTRAINT `fk_cartid` FOREIGN KEY (`cart_id`) REFERENCES `cart` (`cart_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT `fk_productid` FOREIGN KEY (`product_id`) REFERENCES `cart` (`product_id`) ON DELETE CASCADE ON UPDATE CASCADE
+    PRIMARY KEY (`cart_item_id`)
+  )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --TODO CartItem
 

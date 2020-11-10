@@ -69,5 +69,7 @@ public class UserController {
     public String welcome(Model model) {
         return "welcome";
     }
+
+    
        
 }
