@@ -8,17 +8,44 @@ USE `sql9379333`;
   `username` VARCHAR(50) NOT NULL,
   `email` VARCHAR(50) NOT NULL,
   `password` VARCHAR(68) NOT NULL,
---   `role` VARCHAR(45) NOT NULL,
-  `enabled` TINYINT(1) NOT NULL DEFAULT 1,
+  `enabled` ENUM("true", "false") NOT NULL DEFAULT "true", --Change in db --Not showing up in database
   `fullname` VARCHAR(50) NULL,
   `phone_number` VARCHAR(22) NULL,
-  
+  `shipping_address` VARCHAR(100) NULL,
+  `billing_address` VARCHAR(100) NULL,
   UNIQUE INDEX `email_UNIQUE` (`email` ASC),
   PRIMARY KEY (`user_id`),
   UNIQUE INDEX `username_UNIQUE` (`username` ASC));
 
 --Roles and priviledges for User and Admin for login and registration and customizated page views
 --Where to put address
+
+
+CREATE TABLE `sql9379333`.`billing_address`(
+
+`id` INT NOT NULL AUTO_INCREMENT,
+`user_id` INT NOT NULL,
+`name` VARCHAR(50) NOT NULL,
+`city` VARCHAR(50) NOT NULL,
+`state` VARCHAR(50) NOT NULL
+`postal_code` VARCHAR(10) NOT NULL
+PRIMARY KEY (`id`), 
+CONSTRAINT `fk_billing_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+
+
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `sql9379333`.`shipping_address`(
+
+`id` INT NOT NULL AUTO_INCREMENT,
+`user_id` INT NOT NULL,
+`name` VARCHAR(50) NOT NULL,
+`city` VARCHAR(50) NOT NULL,
+`state` VARCHAR(50) NOT NULL,
+`postal_code` VARCHAR(10) NOT NULL,
+PRIMARY KEY (`id`), 
+CONSTRAINT `fk_shipping_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 -- idea Make an Address table
@@ -73,7 +100,7 @@ CREATE TABLE `user_role` (
   )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
---TODO
+--TODO orders or invoices
 -- CREATE TABLE `sql9373933`.`invoices` (
 --   );
 
@@ -85,4 +112,5 @@ CREATE TABLE `user_role` (
 
 --TODO CartItem
 
+--TODO Customers table (FK users)
 

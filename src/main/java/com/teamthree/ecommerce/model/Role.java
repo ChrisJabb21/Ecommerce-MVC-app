@@ -1,5 +1,6 @@
 package com.teamthree.ecommerce.model;
 
+import java.io.Serializable;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -12,8 +13,13 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "role")
-public class Role {
+public class Role implements Serializable {
 	
+	  /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
+
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
@@ -30,6 +36,10 @@ public class Role {
 	public String getName() {
 		return name;
 	}
+	
+	// public String setName(String name) {
+	// 	return this.name = name;
+	// }
 	public void setName(String name) {
 		this.name = name;
 	}

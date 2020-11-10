@@ -1,11 +1,9 @@
 package com.teamthree.ecommerce.model;
 
+import java.io.Serializable;
 import java.util.Set;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -17,31 +15,51 @@ import javax.persistence.Transient;
 
 import org.hibernate.annotations.GenericGenerator;
 
-
 @Entity
 @Table(name = "users")
-public class User {
-	
-	
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO,generator="native")
-    @GenericGenerator(name = "native",strategy = "native")
-    private int id;
-    private String username;
-    private String fullname;
-    private String email;
-    private String phone_number;
-    private String password;
-    @Transient
-    private String passwordConfirm;
-    private boolean enabled;
-	//private String address; 
+public class User implements Serializable {
+
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = 1L;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
+	@GenericGenerator(name = "native", strategy = "native")
+	private int id;
+	private String username;
+	private String email;
+	private String fullname;
+	private String phone_number;
+	private String password;
+	@Transient
+	private String passwordConfirm;
+	private boolean enabled = true;
+	private String billing_address;
+	private String shipping_address;
 	@ManyToMany
-	@JoinTable(name = "user_role", joinColumns= @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private Set<Role> roles;
+	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+	private Set<Role> roles;
 
 	public int getId() {
 		return id;
+	}
+
+	public String getBilling_address() {
+		return billing_address;
+	}
+
+	public void setBilling_address(String billing_address) {
+		this.billing_address = billing_address;
+	}
+
+	
+	public String getShipping_address() {
+		return shipping_address;
+	}
+
+	public void setShipping_address(String shipping_address) {
+		this.shipping_address = shipping_address;
 	}
 
 	public void setId(int id) {
@@ -112,4 +130,6 @@ public class User {
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
 	}
+
+
 }
