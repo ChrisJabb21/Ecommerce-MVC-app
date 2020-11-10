@@ -21,7 +21,7 @@
         <h2>Welcome ${pageContext.request.userPrincipal.name} | <a onclick="document.forms['logoutForm'].submit()">Logout</a></h2>
 
 		<a href="url to products">Products</a>
-		
+		<br>
 		<a href="url to cart">Cart</a>
 		
     </c:if>

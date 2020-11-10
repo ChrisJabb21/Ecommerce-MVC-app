@@ -21,7 +21,7 @@
         <h2>Welcome ${pageContext.request.userPrincipal.name} | <a onclick="document.forms['logoutForm'].submit()">Logout</a></h2>
 
 		<a href="url to product inventory">Product Inventory</a>
-		
+		<br>
 		<a href="url to customer management">Customer Management</a>
     </c:if>
 
