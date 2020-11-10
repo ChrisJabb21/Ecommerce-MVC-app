@@ -23,16 +23,16 @@ public class CartItem implements Serializable{
     @GeneratedValue(strategy= GenerationType.AUTO)
     private String cartItemId;
 
-    private int quantity;
+    private int quantity = 1;
 
     private double price;
 
 	@ManyToOne
-	@JoinColumn(name = "productId")
+	@JoinColumn(name = "product_id")
 	private Product product;
 
 	@ManyToOne
-	@JoinColumn(name = "cartId")
+	@JoinColumn(name = "cart_id")
 	private Cart cart;
 
 	public String getCartItemId() {

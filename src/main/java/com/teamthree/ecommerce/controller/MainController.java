@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+/** Controller for view of common pages a guest, customer or admin can view. */
 public class MainController {
 	
 	@RequestMapping("/")
@@ -19,5 +20,6 @@ public class MainController {
 	public String showAboutUs(){
 		return "aboutUs";
 	}
-	//show products page
+
+	//show products page as a user or guest
 }
