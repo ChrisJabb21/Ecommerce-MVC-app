@@ -8,11 +8,11 @@ USE `sql9379333`;
   `username` VARCHAR(50) NOT NULL,
   `email` VARCHAR(50) NOT NULL,
   `password` VARCHAR(68) NOT NULL,
---   `role` VARCHAR(45) NOT NULL,
   `enabled` ENUM("true", "false") NOT NULL DEFAULT "true", --Change in db --Not showing up in database
   `fullname` VARCHAR(50) NULL,
   `phone_number` VARCHAR(22) NULL,
-  
+  `shipping_address` VARCHAR(100) NULL,
+  `billing_address` VARCHAR(100) NULL,
   UNIQUE INDEX `email_UNIQUE` (`email` ASC),
   PRIMARY KEY (`user_id`),
   UNIQUE INDEX `username_UNIQUE` (`username` ASC));
