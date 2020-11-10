@@ -110,6 +110,20 @@ CREATE TABLE `user_role` (
 
 --TODO Cart
 
+ CREATE TABLE `sql9373933`.`cart` (
+  `cart_id` INT NOT NULL AUTO_INCREMENT,
+  `user_id` INT NOT NULL,
+  `cart_item_id` INT NOT NULL,
+  `totalprice` DECIMAL(15,2) NOT NULL
+   CONSTRAINT `fk_user_role_roleid` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_user_role_userid` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  PRIMARY KEY (`cart_id`)
+  )ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+ CREATE TABLE `sql9373933`.`cartitem` (
+  )ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 --TODO CartItem
 
 --TODO Customers table (FK users)

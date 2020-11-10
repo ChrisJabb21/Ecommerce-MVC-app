@@ -43,8 +43,6 @@ public class CartItem implements Serializable{
 		this.cartItemId = cartItemId;
 	}
 
-	
-
 	public double getPrice() {
 		return price;
 	}
@@ -67,6 +65,14 @@ public class CartItem implements Serializable{
 
 	public void setCart(Cart cart) {
 		this.cart = cart;
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
 	}
 
 }

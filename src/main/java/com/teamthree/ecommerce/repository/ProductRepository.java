@@ -1,0 +1,9 @@
+package com.teamthree.ecommerce.repository;
+
+import com.teamthree.ecommerce.model.Product;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ProductRepository extends JpaRepository<Product, Integer> {
+    
+}

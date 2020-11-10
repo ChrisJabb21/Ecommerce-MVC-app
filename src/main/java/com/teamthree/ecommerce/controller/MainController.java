@@ -19,4 +19,5 @@ public class MainController {
 	public String showAboutUs(){
 		return "aboutUs";
 	}
+	//show products page
 }
