@@ -18,18 +18,20 @@
 					<td scope="col">Category</td>
 					<td scope="col">Condition</td>
 					<td scope="col">Price</td>
-					<td scope="col">Info</td>
+					<td scope="col"></td>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach items="${listEndpointHere}" var="listEndpointHere">
 					<tr>
+						<!-- Consider making entire field clickable -->
 						<td>${endPointHere.photo}</td>
 						<td>${endPointHere.name}</td>
 						<td>${endPointHere.category}</td>
 						<td>${endPointHere.condition}</td>
 						<td>${endPointHere.price}</td>
-						<td>${endPointHere.info}</td>
+						<td><button class="addCart" type="button" onclick="need Add to cart link">Add to Cart</button></td>
+						<!-- <td>${endPointHere.info}</td> -->
 					</tr>
 				</c:forEach>
 			</tbody>
