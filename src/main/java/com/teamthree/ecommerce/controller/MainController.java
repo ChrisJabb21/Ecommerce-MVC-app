@@ -1,11 +1,17 @@
 package com.teamthree.ecommerce.controller;
 
+import com.teamthree.ecommerce.service.ProductService;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 /** Controller for view of common pages a guest, customer or admin can view. */
 public class MainController {
+
+	@Autowired
+	ProductService productService;
 	
 	@RequestMapping("/")
 	public String showIndex(){
