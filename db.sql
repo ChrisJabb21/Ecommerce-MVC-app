@@ -130,46 +130,9 @@ CREATE TABLE `user_role` (
    `quantity` INT NOT NULL,
    `price` DECIMAL(15,2) NOT NULL,
   CONSTRAINT `fk_cartid` FOREIGN KEY (`cart_id`) REFERENCES `cart` (`cart_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-    CONSTRAINT `fk_productid` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`) ON DELETE CASCADE ON UPDATE CASCADE
+    CONSTRAINT `fk_productid` FOREIGN KEY (`product_id`) REFERENCES `cart` (`product_id`) ON DELETE CASCADE ON UPDATE CASCADE
     PRIMARY KEY (`cart_item_id`)
   )ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
-
---
--- ALTER TABLE `sql9373933`.`cart` 
--- ADD INDEX `fk_user_id_idx` (`user_id` ASC),
--- ADD INDEX `fk_cartitem_id_idx` (`cart_item_id` ASC);
--- ;
--- ALTER TABLE `sql9373933`.`cart` 
--- ADD CONSTRAINT `fk_user_id`
---   FOREIGN KEY (`user_id`)
---   REFERENCES `sql9373933`.`users` (`id`)
---   ON DELETE CASCADE
---   ON UPDATE CASCADE,
--- ADD CONSTRAINT `fk_cartitem_id`
---   FOREIGN KEY (`cart_item_id`)
---   REFERENCES `sql9373933`.`cartitem` (`cart_item_id`)
---   ON DELETE CASCADE
---   ON UPDATE CASCADE;
-
--- ALTER TABLE `sql9373933`.`cartitem` 
--- ADD INDEX `fk_productid_idx` (`product_id` ASC),
--- ADD INDEX `fk_cartid_idx` (`cart_id` ASC);
--- ;
--- ALTER TABLE `sql9373933`.`cartitem` 
--- ADD CONSTRAINT `fk_productid`
---   FOREIGN KEY (`product_id`)
---   REFERENCES `sql9373933`.`products` (`product_id`)
---   ON DELETE NO ACTION
---   ON UPDATE NO ACTION,
--- ADD CONSTRAINT `fk_cartid`
---   FOREIGN KEY (`cart_id`)
---   REFERENCES `sql9373933`.`cart` (`cart_id`)
---   ON DELETE CASCADE
---   ON UPDATE CASCADE;
-
-
 
 --TODO CartItem
 

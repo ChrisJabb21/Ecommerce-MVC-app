@@ -1,6 +1,5 @@
 package com.teamthree.ecommerce.controller;
 
-import com.teamthree.ecommerce.service.ProductService;
 import com.teamthree.ecommerce.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +17,7 @@ public class AdminController {
 	
 	@Autowired 
 	UserService userService;
-	@Autowired 
-	ProductService productsservice;
+	//need productsservice
 	
 	@RequestMapping
 	public String adminWelcomePage() {
@@ -45,6 +43,10 @@ public class AdminController {
 	@PostMapping("/admin/editUser/{id}")
 	public ModelAndView updateUser(@PathVariable("id") Integer id){
 		ModelAndView mv = new ModelAndView("admin/editUser");
+	//	mv.addObject("fullname", userService.findOne(id));
+	//	mv.addObject("email", Condition.values());
+	//	mv.addObject("category", Category.values());
+	//	mv.addObject("size", Size.values());
 		return mv;
 	}
 	
