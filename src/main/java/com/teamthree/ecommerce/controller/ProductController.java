@@ -26,40 +26,36 @@ public class ProductController {
     @Autowired
     ProductService productService;
 
-    @RequestMapping(value = "/products", method = RequestMethod.GET)
+	//For Admin to access
+    @RequestMapping(value = "/product_inventory", method = RequestMethod.GET)
 	public String listProducts(Model model){
         model.addAttribute("product", new Product());
         model.addAttribute("listProducts", productService.listProducts());
-		return "products";
+		return "product_inventory";
 	}
 	
 
-	@RequestMapping("/addProduct")
-	public ModelAndView createUser(@PathVariable("id") Integer id){
-		ModelAndView mv = new ModelAndView("admin/editUser");
-	//	mv.addObject("fullname", userService.findOne(id));
-	//	mv.addObject("email", Condition.values());
-	//	mv.addObject("category", Category.values());
-	//	mv.addObject("size", Size.values());
-		return mv;
-	}
-	
-	@PostMapping("/editProduct/{id}")
-	public ModelAndView updateProduct(@PathVariable("id") Integer id){
-		ModelAndView mv = new ModelAndView("/editUser");
-		return mv;
-	}
+//	@RequestMapping("/addProduct")
+//	public ModelAndView createUser(@PathVariable("id") Integer id){
+//		ModelAndView mv = new ModelAndView("admin/editUser");
+//	//	mv.addObject("fullname", userService.findOne(id));
+//	//	mv.addObject("email", Condition.values());
+//	//	mv.addObject("category", Category.values());
+//	//	mv.addObject("size", Size.values());
+//		return mv;
+//	}
+//	
+//	@PostMapping("/editProduct/{id}")
+//	public ModelAndView updateProduct(@PathVariable("id") Integer id){
+//		ModelAndView mv = new ModelAndView("/editProduct");
+//		return mv;
+//	}
 	
 	//TODO
-	@RequestMapping("/remove/{id}")
-    public String removeProduct(@PathVariable("id") int id){
+	// @RequestMapping("/remove/{id}")
+    // public String removeProduct(@PathVariable("id") int id){
 		
-        //this.productService.removeProduct(id);
-        //return "redirect:/view-products";
-    }
-	
-//	@RequestMapping ("/products")
-//	public String productsPage(){
-//		return "admin/products";
-//	}
+    //     //this.productService.removeProduct(id);
+    //     //return "redirect:/view-products";
+    // }
 }

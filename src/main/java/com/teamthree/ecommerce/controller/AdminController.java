@@ -1,14 +1,17 @@
 package com.teamthree.ecommerce.controller;
 
-import com.teamthree.ecommerce.service.ProductService;
-import com.teamthree.ecommerce.service.UserService;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.teamthree.ecommerce.model.User;
+import com.teamthree.ecommerce.service.ProductService;
+import com.teamthree.ecommerce.service.UserService;
 
 /*
 Controller for admin view
@@ -29,19 +32,21 @@ public class AdminController {
 	ProductService productService;
 	
 //	@RequestMapping
-//	public String adminWelcomePage() {
+//	public String adminWelcomePage("") {
 //		return "admin/admin"; 
 //	}
 	
-	@RequestMapping ("/users")
-	public String usersPage(){
-		return "view-users";
-	}
+	  @RequestMapping(value = "/users", method = RequestMethod.GET)
+		public String listUsers(Model model){
+	        model.addAttribute("user", new User());
+	        model.addAttribute("listUsers", userService.listUsers());
+			return "users";
+		}
 	
 
 	@RequestMapping("/addUser")
 	public ModelAndView createUser(@PathVariable("id") Integer id){
-		ModelAndView mv = new ModelAndView("admin/editUser");
+		ModelAndView mv = new ModelAndView("addUser");
 	//	mv.addObject("fullname", userService.findOne(id));
 	//	mv.addObject("email", Condition.values());
 	//	mv.addObject("category", Category.values());
@@ -54,10 +59,5 @@ public class AdminController {
 		ModelAndView mv = new ModelAndView("/editUser");
 		return mv;
 	}
-	
-//	@RequestMapping ("/products")
-//	public String productsPage(){
-//		return "admin/products";
-//	}
     
 }
