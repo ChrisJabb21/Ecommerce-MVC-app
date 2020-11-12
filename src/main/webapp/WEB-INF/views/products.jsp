@@ -1,14 +1,35 @@
 <%@ include file="common/header.jspf" %>
-
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <title>Products</title>
+<p>Checkout all the awesome products available now!</p>
+<h2>All Products</h2>
 </head>
 <body>
-
+<!-- Make it a Bootstrap grid view-->
+    <c:if test="${!empty listProducts}">
+        <table class="tg">
+        <tr>
+<!--             <th width="80">Product ID</th>-->
+            <th width="80">Product Image</th>
+            <th width="80">Product Name</th>
+            <th width="80">Category</th>
+            <th width="80">Condition</th>
+            <th width="60">Price</th>
+        </tr>
+        <c:forEach items="${listProducts}" var="product">
+            <tr>
+                <!-- <td>${product.productId}</td> -->
+                <td>${product.product_image}</td>
+                <td>${product.name}</td>
+                <td>${product.category}</td>
+                <td>${product.condition}</td>
+                <td>${product.price}</td>
+            </tr>
+        </c:forEach>
+        </table>
+    </c:if>
     <!--Display all products for sale availiable from database-->
 	<div class="container">
-		<h2>All Products</h2>
-		<br>
-		<p>Checkout all the awesome products available now!</p>
 		<br><br>		
 		<table class="table">
 			<thead>
@@ -18,7 +39,6 @@
 					<td scope="col">Category</td>
 					<td scope="col">Condition</td>
 					<td scope="col">Price</td>
-					<td scope="col"></td>
 				</tr>
 			</thead>
 			<tbody>

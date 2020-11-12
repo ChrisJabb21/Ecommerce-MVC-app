@@ -9,7 +9,8 @@ public interface UserService {
 	public User getUserById(int id);
 	public void updateUser(User user);
 	public void addUser(User user);
-	List<User> getAllProducts();
+	List<User> listUsers();
+
 	void save(User user);
 	User findByUsername(String username);
 

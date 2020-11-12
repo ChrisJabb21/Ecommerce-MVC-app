@@ -20,7 +20,7 @@ USE `sql9379333`;
 --Roles and priviledges for User and Admin for login and registration and customizated page views
 --Where to put address
 
-
+--Not used
 CREATE TABLE `sql9379333`.`billing_address`(
 
 `id` INT NOT NULL AUTO_INCREMENT,

@@ -2,6 +2,7 @@ package com.teamthree.ecommerce.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,11 +19,12 @@ public class Product implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "product_id")
     private int productId;
 
 
     @Transient
-    private MultipartFile product_thumbnail;
+    private MultipartFile product_image;
 
     private String name;
 
@@ -39,12 +41,12 @@ public class Product implements Serializable {
         this.productId = productId;
     }
 
-    public MultipartFile getProduct_thumbnail() {
-        return product_thumbnail;
+    public MultipartFile getProduct_image() {
+        return product_image;
     }
 
-    public void setProduct_thumbnail(MultipartFile product_thumbnail) {
-        this.product_thumbnail = product_thumbnail;
+    public void setProduct_image(MultipartFile product_image) {
+        this.product_image = product_image;
     }
 
     public String getName() {

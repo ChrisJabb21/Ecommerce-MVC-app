@@ -69,6 +69,12 @@ public class UserController {
     public String welcome(Model model) {
         return "welcome";
     }
+    
+    @RequestMapping(value = { "/admin_home"}, method = RequestMethod.GET)
+    public String adminHome(Model model) {
+        return "admin_home";
+    }
+
 
     
        

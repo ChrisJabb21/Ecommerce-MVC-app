@@ -16,18 +16,21 @@ public class ProductService {
     @Autowired
     ProductRepository productRepository;
 
+	@Transactional
     public void saveProduct(Product product) {
         productRepository.save(product);
     }
      
-    public List<Product> listAll() {
+	@Transactional
+    public List<Product> listProducts() {
         return (List<Product>) productRepository.findAll();
     }
-     
+	@Transactional
     public Product get(int id) {
         return productRepository.findById(id).get();
     }
      
+	@Transactional
     public void delete(int id) {
         productRepository.deleteById(id);
     }

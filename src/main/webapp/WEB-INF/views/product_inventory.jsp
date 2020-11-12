@@ -22,7 +22,28 @@
     </c:if>
     
     <h1>Product Inventory</h1>
-    
+     <c:if test="${!empty listProducts}">
+        <table class="tg">
+        <tr>
+            <th width="80">Product ID</th>
+            <th width="80">Product Image</th>
+            <th width="80">Product Name</th>
+            <th width="80">Category</th>
+            <th width="80">Condition</th>
+            <th width="60">Price</th>
+        </tr>
+        <c:forEach items="${listProducts}" var="product">
+            <tr>
+                <td>${product.productId}</td>
+                <td>${product.product_image}</td>
+                <td>${product.name}</td>
+                <td>${product.category}</td>
+                <td>${product.condition}</td>
+                <td>${product.price}</td>
+            </tr>
+        </c:forEach>
+        </table>
+    </c:if>
 
 </div>
 <!-- /container -->
