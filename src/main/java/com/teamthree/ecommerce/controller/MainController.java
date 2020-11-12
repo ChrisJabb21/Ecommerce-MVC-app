@@ -10,13 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 /** Controller for view of common pages a guest, customer or admin can view. */
 public class MainController {
 
-	@Autowired
-	ProductService productService;
-	
 	@RequestMapping("/")
 	public String showIndex(){
 		return "index";
 	}
+	
 	@RequestMapping("/contact")
 	public String showContactUs(){
 		return "contactUs";

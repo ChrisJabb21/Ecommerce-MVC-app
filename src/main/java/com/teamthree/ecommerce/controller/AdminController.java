@@ -16,23 +16,30 @@ Controller for admin view
 @Controller
 public class AdminController {
 	
+	//TODO
+	
+	//Endpoints
+	//view-users
+	//add-user
+	//view-user
+	//
 	@Autowired 
 	UserService userService;
 	@Autowired 
-	ProductService productsservice;
+	ProductService productService;
 	
-	@RequestMapping
-	public String adminWelcomePage() {
-		return "admin/admin"; 
-	}
+//	@RequestMapping
+//	public String adminWelcomePage() {
+//		return "admin/admin"; 
+//	}
 	
 	@RequestMapping ("/users")
 	public String usersPage(){
-		return "admin/users";
+		return "view-users";
 	}
 	
 
-	@RequestMapping("/admin/addUser")
+	@RequestMapping("/addUser")
 	public ModelAndView createUser(@PathVariable("id") Integer id){
 		ModelAndView mv = new ModelAndView("admin/editUser");
 	//	mv.addObject("fullname", userService.findOne(id));
@@ -42,15 +49,15 @@ public class AdminController {
 		return mv;
 	}
 	
-	@PostMapping("/admin/editUser/{id}")
+	@PostMapping("/editUser/{id}")
 	public ModelAndView updateUser(@PathVariable("id") Integer id){
-		ModelAndView mv = new ModelAndView("admin/editUser");
+		ModelAndView mv = new ModelAndView("/editUser");
 		return mv;
 	}
 	
-	@RequestMapping ("/products")
-	public String productsPage(){
-		return "admin/products";
-	}
+//	@RequestMapping ("/products")
+//	public String productsPage(){
+//		return "admin/products";
+//	}
     
 }
