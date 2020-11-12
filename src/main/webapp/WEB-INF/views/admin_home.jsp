@@ -20,8 +20,6 @@
 
         <h2>Welcome ${pageContext.request.userPrincipal.name} | <a onclick="document.forms['logoutForm'].submit()">Logout</a></h2>
 
-
-
 		<a href="${contextPath}/product_inventory">Product Inventory</a>
 		<br>
 		<a href="${contextPath}/users">Customer Management</a>

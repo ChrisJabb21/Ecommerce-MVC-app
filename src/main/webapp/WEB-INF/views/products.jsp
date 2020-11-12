@@ -50,7 +50,7 @@
 						<td>${endPointHere.category}</td>
 						<td>${endPointHere.condition}</td>
 						<td>${endPointHere.price}</td>
-						<td><button class="addCart" type="button">Add to Cart</button></td>
+						<td><button class="addCart" type="button" onclick="need Add to cart link">Add to Cart</button></td>
 						<!-- <td>${endPointHere.info}</td> -->
 					</tr>
 				</c:forEach>
