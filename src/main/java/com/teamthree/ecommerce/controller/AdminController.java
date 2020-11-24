@@ -47,12 +47,14 @@ public class AdminController {
 	@RequestMapping("/addUser")
 	public ModelAndView createUser(@PathVariable("id") Integer id){
 		ModelAndView mv = new ModelAndView("addUser");
-	//	mv.addObject("fullname", userService.findOne(id));
-	//	mv.addObject("email", Condition.values());
-	//	mv.addObject("category", Category.values());
-	//	mv.addObject("size", Size.values());
+		// mv.addObject("fullname", userService.findOne(id));
+		// mv.addObject("email", Condition.values());
+		// mv.addObject("category", Category.values());
+		// mv.addObject("size", Size.values());
 		return mv;
 	}
+
+
 	
 	@PostMapping("/editUser/{id}")
 	public ModelAndView updateUser(@PathVariable("id") Integer id){

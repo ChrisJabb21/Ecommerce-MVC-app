@@ -32,6 +32,7 @@
             <th width="80">Condition</th>
             <th width="60">Price</th>
         </tr>
+        <h3><a href="${contextPath}/addProduct">New Product</a></h3>
         <c:forEach items="${listProducts}" var="product">
             <tr>
                 <td>${product.productId}</td>
@@ -40,6 +41,11 @@
                 <td>${product.category}</td>
                 <td>${product.condition}</td>
                 <td>${product.price}</td>
+                <td>
+                    <a href="/editProduct?id=${product.productId}">Edit</a>
+                    &nbsp;&nbsp;&nbsp;
+                    <a href="/deleteProduct?id=${product.productId}">Delete</a>
+                </td>
             </tr>
         </c:forEach>
         </table>

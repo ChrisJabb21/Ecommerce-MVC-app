@@ -31,8 +31,11 @@ public class ProductService {
     }
      
 	@Transactional
-    public void delete(int id) {
+    public void deleteProduct(int id) {
         productRepository.deleteById(id);
     }
+
+	public void save(Product product) {
+	}
     
 }

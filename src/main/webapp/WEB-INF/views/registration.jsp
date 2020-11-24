@@ -1,4 +1,5 @@
 <%@ include file="common/header.jspf" %>
+<%@ include file="common/_navbar.jsp" %>
 
     <title>Create an account</title>
 
